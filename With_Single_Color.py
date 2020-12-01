@@ -5,3 +5,18 @@ body_cascade = cv2.CascadeClassifier("haarcascade_fullbody.xml")
 
 # startt  web cam
 cap = cv2.VideoCapture('Body.mp4')
+
+while True:
+
+    # read image from webcam
+    respose, color_img = cap.read()
+
+    if respose == False:
+        break
+
+    # Convert to grayscale
+    gray_img = cv2.cvtColor(color_img, cv2.COLOR_BGR2GRAY)
+
+    # Detect the faces
+    faces = body_cascade.detectMultiScale(gray_img, 1.1, 1)
+
