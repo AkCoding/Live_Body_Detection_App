@@ -20,3 +20,18 @@ while True:
     # Detect the faces
     faces = body_cascade.detectMultiScale(gray_img, 1.1, 1)
 
+    # display rectrangle
+    for (x, y, w, h) in faces:
+        cv2.rectangle(color_img, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
+        # display image
+        cv2.imshow('img', color_img)
+
+        # v_writer.write(color_img)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the VideoCapture object
+cap.release()
+cv2.destroyAllWindows()
