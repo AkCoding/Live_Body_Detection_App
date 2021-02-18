@@ -1,5 +1,6 @@
 import cv2
 
+
 # Load the Cascade Classifier
 body_cascade = cv2.CascadeClassifier("haarcascade_fullbody.xml")
 
